@@ -1,0 +1,6 @@
+C:\Users\Public\Visual Studio Projects\Week 4\Day 4 Work\TableGame\TableGame\bin\Debug\TableGame.exe
+C:\Users\Public\Visual Studio Projects\Week 4\Day 4 Work\TableGame\TableGame\bin\Debug\TableGame.pdb
+C:\Users\Public\Visual Studio Projects\Week 4\Day 4 Work\TableGame\TableGame\obj\Debug\TableGame.csprojAssemblyReference.cache
+C:\Users\Public\Visual Studio Projects\Week 4\Day 4 Work\TableGame\TableGame\obj\Debug\TableGame.csproj.CoreCompileInputs.cache
+C:\Users\Public\Visual Studio Projects\Week 4\Day 4 Work\TableGame\TableGame\obj\Debug\TableGame.exe
+C:\Users\Public\Visual Studio Projects\Week 4\Day 4 Work\TableGame\TableGame\obj\Debug\TableGame.pdb
