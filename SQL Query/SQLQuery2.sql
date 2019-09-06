@@ -4,5 +4,3 @@ game varchar(50),
 type_of_game varchar(50),
 review varchar(50)
 );
-
-alter table game;

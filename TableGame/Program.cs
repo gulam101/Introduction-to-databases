@@ -19,34 +19,88 @@ namespace TableGame
 
             string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyGame;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             string insertAtring = string.Format("INSERT INTO Game (name, game, type_of_game, review) VALUES('{0}', '{1}', '{2}', '{3}')", game1.Name, game1.GHame, game1.Type, game1.Review);
-            string insertString2 = "insert into Game (name, game, type_of_game, review) values('a', 'b', 'c', 'g')";
             SqlConnection conn = new SqlConnection(connectionString);
-            //// using (conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyGame;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
-            // {
-            //     conn.Open(); //Always use this to open the object!
-            //     Console.WriteLine(conn.State);
-            // }
-            
-
             try
             {
-                conn.Open();
-                //SqlCommand selectCommand = new SqlCommand("select * from Game", conn);
+                conn.Open(); //Opens the connection
                 SqlCommand insertCommand = new SqlCommand(insertAtring, conn);
-                //SqlCommand insertCommand2 = new SqlCommand(insertString2, conn);
                 insertCommand.ExecuteReader();
             }
             catch(SqlException ex )
             {
-                Console.WriteLine("Something happen to the server"+ex.Message);
+                Console.WriteLine("Error: Please check the server connection" +ex.Message);
             }
             finally
             {
-                conn.Close();
+                conn.Close(); //Closes connection
             }
-      
-            //
-            
+        }
+    }
+
+    class Insert
+    {
+        public static void addedDB(Game go, SqlConnection connection)
+        {
+            Game game1 = new Game();
+            string insertString = string.Format("insert into Game (name, game, type_of_game, review) VALUES('{0}', '{1}', '{2}', '{3}')", game1.Name, game1.GHame, game1.Type, game1.Review);
+            try
+            {
+                connection.Open();
+                SqlCommand insertCommand = new SqlCommand(insertString, connection);
+                insertCommand.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: Please check the server connection" +ex.Message);
+            }
+            finally
+            {
+                connection.Close(); //Closes the connection
+            }
+        }
+    }
+
+    class Delete
+    {
+        public static void deleteValueDB(string game, SqlConnection connection)
+        {
+            string deleteString = string.Format("delete from Game where name='{0}'", game); //This is a command not a string!
+            try
+            {
+                connection.Open();
+                SqlCommand deleteCommand = new SqlCommand(deleteString, connection);
+                deleteCommand.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: Please check the server connection" + ex.Message);
+            }
+            finally
+            {
+                connection.Close(); //Closes the connection
+            }
+        }
+    }
+
+    class Update
+    {
+        public static void updateValueDB(string newData, string where, SqlConnection connection)
+        {
+            string updateString = string.Format("update Game set game = '{0}' WHERE name = '{1}'", newData, where);
+            try
+            {
+                connection.Open();
+                SqlCommand deleteCommand = new SqlCommand(updateString, connection);
+                deleteCommand.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: Please check the server connection" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 
