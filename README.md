@@ -13,6 +13,7 @@ This was a project designed to use SQL commands within C#. The point of this pro
 - C# Classes
 - Try-catch statement
 - SQL Client connection
+- Better understanding of OOP
 
 ### Constraints:
 None.
